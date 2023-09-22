@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+*,
+*:before,
+*:after {
+  padding: 0px;
+  margin: 0px;
+  vertical-align: baseline;
+  list-style: none;
+  border: 0px;
+  font-family: "Inter", sans-serif;
+}

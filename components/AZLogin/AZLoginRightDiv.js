@@ -187,12 +187,12 @@ export class AZLoginRightDiv extends HTMLElement {
 
         const registerCompanyButton = document.createElement('az-button');
         registerCompanyButton.classList.add('registerCompanyButton');
-        registerCompanyButton.setAttribute('href', './components/AZRegister/components/Steps/Company/Step1.html');
+        registerCompanyButton.setAttribute('href', '/components/AZRegister/components/Steps/Company/Step1.html');
         registerCompanyButton.textContent = 'ESCRITÓRIO';
 
         const registerPersonButton = document.createElement('az-button');
         registerPersonButton.classList.add('registerPersonButton');
-        registerPersonButton.setAttribute('href', './components/AZRegister/components/Steps/Person/Step1.html');
+        registerPersonButton.setAttribute('href', '/components/AZRegister/components/Steps/Person/Step1.html');
         registerPersonButton.textContent = 'AGENTE AUTÔNOMO';
 
         const policiesTextContainer = document.createElement('div');

@@ -299,23 +299,28 @@ function updateStyle(elem) {
 
             soldProduct.textContent = 'R$ ' + sold;
 
-            const progressBarContainer = document.createElement('div');
-            progressBarContainer.classList.add('progressBarContainer');
-
-            const left = document.createElement('div');
-            left.classList.add('left');
-            left.style.width = elem.getAttribute('consolidated') + '%';
-
-            progressBarContainer.appendChild(left);
-
             productPriceContainer.appendChild(soldProduct);
             productNameContainer.appendChild(productName);
             productImageContainer.appendChild(productImage);
 
             productContainer.appendChild(productImageContainer);
             productContainer.appendChild(productNameContainer);
-            productContainer.appendChild(productPriceContainer);
-            productContainer.appendChild(progressBarContainer);
+            if(!elem.hasAttribute('client')) {
+                productContainer.appendChild(productPriceContainer);
+
+                const progressBarContainer = document.createElement('div');
+                progressBarContainer.classList.add('progressBarContainer');
+    
+                const left = document.createElement('div');
+                left.classList.add('left');
+                left.style.width = elem.getAttribute('consolidated') + '%';
+    
+                progressBarContainer.appendChild(left);
+                productContainer.appendChild(progressBarContainer);
+            } else {
+                productContainer.style.height = 'auto';
+                productContainer.style.border = '1px solid rgba(91, 71, 124, 0.31)';
+            }
 
         } else {
             const divider = document.createElement('div');

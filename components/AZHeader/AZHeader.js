@@ -7,6 +7,7 @@ export class AZHeader extends HTMLElement {
         const style = document.createElement('style');
         style.textContent = `
             .header {
+                position: fixed;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -15,6 +16,7 @@ export class AZHeader extends HTMLElement {
                 border-bottom: 1px solid rgba(68, 73, 85, 1);
                 background: rgba(42, 15, 84, 1);
                 flex: 1;
+                z-index: 1;
             }
 
             .menuButton {

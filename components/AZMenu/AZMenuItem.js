@@ -60,8 +60,6 @@ export class AZMenuItem extends HTMLElement {
         text.classList.add('text');
         text.textContent = this.getAttribute('name');
 
-        
-
         menuItem.appendChild(icon);
         menuItem.appendChild(text);
 

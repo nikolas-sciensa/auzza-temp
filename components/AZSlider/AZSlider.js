@@ -171,100 +171,153 @@ export class AZSlider extends HTMLElement {
         const sliderContainer = document.createElement('div');
         sliderContainer.classList.add('sliderContainer');
 
-        const span1 = document.createElement('span');
-        span1.classList.add('span1');
+        if (this.hasAttribute('solo')) {
+            const span1 = document.createElement('span');
+            span1.classList.add('span1');
 
-        const span2 = document.createElement('span');
-        span2.classList.add('span2');
+            const span2 = document.createElement('span');
+            span2.classList.add('span2');
 
-        const input1 = document.createElement('input');
-        input1.classList.add('range');
-        input1.name = 'input1';
-        input1.type = 'range';
-        input1.min = 0;
-        input1.max = interval;
-        input1.value = 0;
-        input1.step = percentage ? '0.1' : '1'
-
-        const input2 = document.createElement('input');
-        input2.classList.add('range');
-        input2.name = 'input2';
-        input2.type = 'range';
-        input2.min = 0;
-        input2.max = interval;
-        input2.value = interval;
-        input2.step = percentage ? '0.1' : '1'
-
-        const output1 = document.createElement('span');
-        output1.classList.add('output');
-        output1.id = 'output1';
-        output1.innerHTML = percentage ? 
-            (parseFloat(input1.value) + parseFloat(min)).toFixed(1) + '%':
-            ((parseFloat(input1.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
-
-        const output2 = document.createElement('span');
-        output2.classList.add('output');
-        output2.id = 'output2';
-        output2.innerHTML = percentage ?
-            (parseFloat(input2.value) + parseFloat(min)).toFixed(1) + '%':
-            ((parseFloat(input2.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
-
-        const pipe = document.createElement('span');
-        pipe.classList.add('output');
-        pipe.innerHTML = ' | ';
-
-        const resetContainer = document.createElement('div');
-        resetContainer.classList.add('resetContainer');
-
-        var updateView = function () {
-            if (this.getAttribute('name') === 'input1') {
-                percentage ?
-                    output1.innerHTML = (parseFloat(this.value) + parseFloat(min)).toFixed(1) + '%':
-                    output1.innerHTML = ((parseFloat(this.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
-            } else {
-                percentage ?
-                    output2.innerHTML = (parseFloat(this.value) + parseFloat(min)).toFixed(1) + '%':
-                    output2.innerHTML = ((parseFloat(this.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
-            }
-            if (parseInt(input1.value) > parseInt(input2.value)) {
-                span2.style.width = (input1.value - input2.value) / this.getAttribute('max') * 100 + '%';
-                span2.style.left = input2.value / this.getAttribute('max') * 100 + '%';
-            } else {
-                span2.style.width = (input2.value - input1.value) / this.getAttribute('max') * 100 + '%';
-                span2.style.left = input1.value / this.getAttribute('max') * 100 + '%';
-            }
-        };
-
-        resetContainer.addEventListener('click', () => {
-            input1.value = 0;
+            const input2 = document.createElement('input');
+            input2.classList.add('range');
+            input2.name = 'input2';
+            input2.type = 'range';
+            input2.min = 0;
+            input2.max = interval;
             input2.value = interval;
-            span2.style.width = '100%';
-            span2.style.left = '0%';
-            if (percentage) {
-                output1.innerHTML = (parseFloat(input1.value) + parseFloat(min)).toFixed(1) + '%';
-                output2.innerHTML = (parseFloat(input2.value) + parseFloat(min)).toFixed(1) + '%';           
+            input2.step = percentage ? '0.1' : '1';
+
+            const output2 = document.createElement('span');
+            output2.classList.add('output');
+            output2.id = 'output2';
+            if (this.getAttribute('output') == 'cri') {
+                output2.style.fontSize = '12px';
+                output2.style.fontWeight = '500';
+                output2.innerHTML = 'Quantidade de CRI: ' + parseFloat(input2.value) + parseFloat(min) + ' (BLINC9)';
+                
+                var updateView = function () {
+                    output2.innerHTML = 'Quantidade de CRI: ' + parseFloat(this.value) + parseFloat(min) + ' (BLINC9)';
+                    span2.style.width = input2.value / this.getAttribute('max') * 100 + '%';
+                };
             } else {
-                output1.innerHTML = ((parseFloat(input1.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
-                output2.innerHTML = ((parseFloat(input2.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                output2.innerHTML = percentage ?
+                    (parseFloat(input2.value) + parseFloat(min)).toFixed(1) + '%' :
+                    ((parseFloat(input2.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                   
+                    var updateView = function () {
+                        percentage ?
+                            output2.innerHTML = (parseFloat(this.value) + parseFloat(min)).toFixed(1) + '%' :
+                            output2.innerHTML = ((parseFloat(this.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                        span2.style.width = input2.value / this.getAttribute('max') * 100 + '%';
+                    };
             }
-        });
-        
-        input1.addEventListener('input', updateView);
-        input2.addEventListener('input', updateView);
 
-        resetContainer.click();
 
-        sliderContainer.appendChild(input1);
-        sliderContainer.appendChild(input2);
-        sliderContainer.appendChild(span1);
-        sliderContainer.appendChild(span2);
+            input2.addEventListener('input', updateView);
 
-        container.appendChild(resetContainer);
-        container.appendChild(sliderText);
-        container.appendChild(sliderContainer);
-        container.appendChild(output1);
-        container.appendChild(pipe);
-        container.appendChild(output2);
+            sliderContainer.appendChild(input2);
+            sliderContainer.appendChild(span1);
+            sliderContainer.appendChild(span2);
+
+            container.appendChild(sliderContainer);
+            container.appendChild(output2);
+        } else {
+            const span1 = document.createElement('span');
+            span1.classList.add('span1');
+
+            const span2 = document.createElement('span');
+            span2.classList.add('span2');
+
+            const input1 = document.createElement('input');
+            input1.classList.add('range');
+            input1.name = 'input1';
+            input1.type = 'range';
+            input1.min = 0;
+            input1.max = interval;
+            input1.value = 0;
+            input1.step = percentage ? '0.1' : '1'
+
+            const input2 = document.createElement('input');
+            input2.classList.add('range');
+            input2.name = 'input2';
+            input2.type = 'range';
+            input2.min = 0;
+            input2.max = interval;
+            input2.value = interval;
+            input2.step = percentage ? '0.1' : '1'
+
+            const output1 = document.createElement('span');
+            output1.classList.add('output');
+            output1.id = 'output1';
+            output1.innerHTML = percentage ?
+                (parseFloat(input1.value) + parseFloat(min)).toFixed(1) + '%' :
+                ((parseFloat(input1.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+
+            const output2 = document.createElement('span');
+            output2.classList.add('output');
+            output2.id = 'output2';
+            output2.innerHTML = percentage ?
+                (parseFloat(input2.value) + parseFloat(min)).toFixed(1) + '%' :
+                ((parseFloat(input2.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+
+            const pipe = document.createElement('span');
+            pipe.classList.add('output');
+            pipe.innerHTML = ' | ';
+
+            const resetContainer = document.createElement('div');
+            resetContainer.classList.add('resetContainer');
+
+            var updateView = function () {
+                if (this.getAttribute('name') === 'input1') {
+                    percentage ?
+                        output1.innerHTML = (parseFloat(this.value) + parseFloat(min)).toFixed(1) + '%' :
+                        output1.innerHTML = ((parseFloat(this.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                } else {
+                    percentage ?
+                        output2.innerHTML = (parseFloat(this.value) + parseFloat(min)).toFixed(1) + '%' :
+                        output2.innerHTML = ((parseFloat(this.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                }
+                if (parseInt(input1.value) > parseInt(input2.value)) {
+                    span2.style.width = (input1.value - input2.value) / this.getAttribute('max') * 100 + '%';
+                    span2.style.left = input2.value / this.getAttribute('max') * 100 + '%';
+                } else {
+                    span2.style.width = (input2.value - input1.value) / this.getAttribute('max') * 100 + '%';
+                    span2.style.left = input1.value / this.getAttribute('max') * 100 + '%';
+                }
+            };
+
+            resetContainer.addEventListener('click', () => {
+                input1.value = 0;
+                input2.value = interval;
+                span2.style.width = '100%';
+                span2.style.left = '0%';
+                if (percentage) {
+                    output1.innerHTML = (parseFloat(input1.value) + parseFloat(min)).toFixed(1) + '%';
+                    output2.innerHTML = (parseFloat(input2.value) + parseFloat(min)).toFixed(1) + '%';
+                } else {
+                    output1.innerHTML = ((parseFloat(input1.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                    output2.innerHTML = ((parseFloat(input2.value) + parseFloat(min)) / 1000).toFixed(1) + 'k';
+                }
+            });
+
+            input1.addEventListener('input', updateView);
+            input2.addEventListener('input', updateView);
+
+            resetContainer.click();
+
+            sliderContainer.appendChild(input1);
+            sliderContainer.appendChild(input2);
+            sliderContainer.appendChild(span1);
+            sliderContainer.appendChild(span2);
+
+            container.appendChild(resetContainer);
+            container.appendChild(sliderText);
+            container.appendChild(sliderContainer);
+            container.appendChild(output1);
+            container.appendChild(pipe);
+            container.appendChild(output2);
+        }
+
 
         shadowRoot.appendChild(style);
         shadowRoot.appendChild(container);

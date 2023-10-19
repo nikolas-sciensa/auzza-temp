@@ -18,12 +18,12 @@ function updateStyle(elem) {
                 width: 100%;
                 background: rgba(255, 255, 255, 0.3);
                 flex: 1;
+                height: 15px
             }
 
             input::placeholder {
                 color: ${elem.hasAttribute('form') ? 'rgba(39, 14, 79, 0.5);' : 'rgba(42, 15, 84, 1);'}
                 font-weight: 500;
-                line-height: 15px;
                 letter-spacing: 0em;
                 text-align: left;
             }
@@ -54,6 +54,21 @@ function updateStyle(elem) {
             }
 
             .birth::-webkit-calendar-picker-indicator {
+                opacity: 0;
+            }
+
+            .date {
+                max-width: 100%;
+                background-image: url('assets/images/calendar.png');
+                background-repeat: no-repeat;
+                background-position: center right 10px;
+                background-size: 16px 16px;
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .date::-webkit-calendar-picker-indicator {
                 opacity: 0;
             }
 
@@ -158,6 +173,67 @@ function updateStyle(elem) {
 
         case 'search':
             input.classList.add('search');
+            break;
+
+        case 'date':
+            input.classList.add('date');
+            input.type = 'text';
+            input.onfocus = (e) => {
+                e.target.type = 'date';
+            }
+
+            input.onblur = (e) => {
+                if (e.target.id === 'date') {
+                    e.target.type = 'text';
+                    let date = new Date(e.target.value);
+                    let month = date.getMonth();
+                    let year = date.getFullYear();
+                    let monthName = '';
+                    switch (month) {
+                        case 0:
+                            monthName = 'Janeiro';
+                            break;
+                        case 1:
+                            monthName = 'Fevereiro';
+                            break;
+                        case 2:
+                            monthName = 'Março';
+                            break;
+                        case 3:
+                            monthName = 'Abril';
+                            break;
+                        case 4:
+                            monthName = 'Maio';
+                            break;
+                        case 5:
+                            monthName = 'Junho';
+                            break;
+                        case 6:
+                            monthName = 'Julho';
+                            break;
+                        case 7:
+                            monthName = 'Agosto';
+                            break;
+                        case 8:
+                            monthName = 'Setembro';
+                            break;
+                        case 9:
+                            monthName = 'Outubro';
+                            break;
+                        case 10:
+                            monthName = 'Novembro';
+                            break;
+                        case 11:
+                            monthName = 'Dezembro';
+                            break;
+                        default:
+                            break;
+                    }
+                    if (monthName) {
+                        e.target.value = `${monthName} ${year}`;
+                    }
+                }
+            }
             break;
 
         case 'filterDate':

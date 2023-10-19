@@ -1,4 +1,4 @@
-export class AZProducts extends HTMLElement {
+export class AZClients extends HTMLElement {
     constructor() {
         super();
 
@@ -6,10 +6,11 @@ export class AZProducts extends HTMLElement {
 
         const style = document.createElement('style');
         style.textContent = `
-            .productsContainer {
+            .clientsContainer {
                 display: flex;
                 user-select: none;
-                min-width: 100vw;
+                width: 100vw;
+                min-width: 300px;
                 height: 100vh;
                 flex: 1;
                 background: linear-gradient(0deg, #E7EDF2, #E7EDF2),
@@ -23,9 +24,9 @@ export class AZProducts extends HTMLElement {
         `;
         const isMenuOpen = this.hasAttribute('open');
         const isDetails = this.hasAttribute('details');
-
-        const productsContainer = document.createElement('div');
-        productsContainer.classList.add('productsContainer');
+        
+        const clientsContainer = document.createElement('div');
+        clientsContainer.classList.add('clientsContainer');
 
         const menuContainer = document.createElement('div');
         menuContainer.classList.add('menuContainer');
@@ -34,19 +35,19 @@ export class AZProducts extends HTMLElement {
         isMenuOpen ? menu.setAttribute('open', '') : null;
         menu.setAttribute('active', this.getAttribute('active'));
 
-        const rightDiv = document.createElement('az-products-right-div');
+        const rightDiv = document.createElement('az-clients-right-div');
         isMenuOpen ? rightDiv.setAttribute('open', '') : null;
         if (isDetails) {
             const productId = this.getAttribute('productId');
             rightDiv.setAttribute('details', '');
             rightDiv.setAttribute('productId', productId);
         }
-        
+
         menuContainer.appendChild(menu);
-        productsContainer.appendChild(menuContainer);
-        productsContainer.appendChild(rightDiv);
+        clientsContainer.appendChild(menuContainer);
+        clientsContainer.appendChild(rightDiv);
 
         shadowRoot.appendChild(style);
-        shadowRoot.appendChild(productsContainer);
+        shadowRoot.appendChild(clientsContainer);
     }
 }

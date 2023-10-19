@@ -5,11 +5,17 @@ function updateStyle(elem) {
             .rightDiv {
                 width: ${elem.hasAttribute('open') ? 'calc(100vw - 190px)' : 'calc(100vw - 54.91px)'};
                 min-width: 300px;
+                height: calc(100vh);
                 ${elem.hasAttribute('details') ? 'overflow-y: scroll;' : ''}
                 overflow-x: hidden;
             }
 
+            .rightDiv::-webkit-scrollbar {
+                display: none;
+            }
+
             .productsContainer {
+                margin-top: 70px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -55,7 +61,7 @@ function updateStyle(elem) {
             .productsListing {
                 margin-right: 14px;
                 width: calc(100% - 14px);
-                height: ${elem.hasAttribute('details') ? '319px;' : 'calc(100vh - 20vh);'}
+                height: ${elem.hasAttribute('details') ? '319px;' : 'calc(100vh - 15vh);'}
                 ${elem.hasAttribute('details') ? 'overflow-y: hidden;' : 'overflow-y: scroll;'}
                 ${elem.hasAttribute('details') ? 'background: rgba(255, 255, 255, 1);' : ''}
                 ${elem.hasAttribute('details') ? 'display: flex;' : ''}
@@ -65,7 +71,7 @@ function updateStyle(elem) {
                 width: calc(32% - 14px);
                 padding: 0;
                 margin: 0;
-                height: calc(100vh - 20vh);
+                height: calc(100vh - 15vh);
                 background: rgba(255, 255, 255, 1);
             }
 
@@ -304,9 +310,322 @@ function updateStyle(elem) {
             .buyContainer {
                 margin-top: 14px;
                 display: flex;
+                flex-direction: column;
                 width: calc(100% - 14px);
-                height: calc(100% - 334px);
+                height: calc(100% - 333px);
                 background: rgba(255, 255, 255, 1);
+            }
+
+            .flexContainer2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                width: calc(100% - 54px);
+                height: max-content;
+                padding: 0 27px;
+                margin: 37px 0;
+                margin-left: 0;
+            }
+
+            .buyTitle {
+                font-size: 16px;
+                font-weight: 700;
+                margin: 0;
+                margin-bottom: 19px;
+            }
+
+            .buyText {
+                font-size: 12px;
+                font-weight: 500;
+                margin: 0;
+                margin-bottom: 2px;
+            }
+
+            .valueText {
+                font-size: 12px;
+                font-weight: 400;
+                margin: 0;
+                margin-bottom: 18px;
+            }
+
+            .tokenContainer {
+                display: flex;
+                align-items: center;
+                height: 22px;
+                background: rgba(250, 250, 250, 1);
+                border: 0.9px solid rgba(227, 227, 227, 0.3);
+                padding: 9px 14.4px;
+                border-radius: 3.6px;
+                margin-bottom: 11px;
+            }
+
+            .tokenIcon {
+                width: 24px;
+                height: 24px;
+                margin-right: 9px;
+            }
+
+            .value {
+                margin: 0;
+                margin-top: -1px;
+                margin-bottom: 18px;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .realGainValue {
+                margin: 0;
+                margin-top: -17.2px;
+                margin-left: 68px;
+                font-size: 12px;
+                font-weight: 700;
+                color: rgba(15, 147, 15, 1);
+            }
+
+            .dividerLeft {
+                border-left: 1px solid rgba(212, 212, 212, 1);
+            }
+
+            .wrapper {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .disclaimerContainer {
+                margin: 28px 27px;
+                padding: 18px 15.12px;
+                border-top: 1px solid rgba(212, 212, 212, 1);
+            }
+
+            .disclaimer {
+                margin: 0;
+                font-size: 10px;
+                font-weight: 400;
+            }
+            
+            .graphicContainer {
+                margin-top: 36px;
+                background: rgba(255, 255, 255, 1);
+                width: calc(100% - 28px);
+                height: 594px;
+                margin-bottom: 36px;
+            }
+
+            .quotationInfoContainer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 16px;
+            }
+
+            .quotationContainer {
+                display: flex;
+                flex-direction: column;
+                width: calc(20% - 16px);
+                max-height: 56px;
+            }
+
+            .quotationText {
+                margin: 0;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .prefix {
+                margin: 0;
+                margin-top: 12px;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .suffix {
+                margin: 0;
+                margin-top: 12px;
+                margin-left: 52px;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .prefixImg {
+                margin-top: 10.5px;
+                width: 24px;
+                height: 24px;
+            }
+
+            .quotation {
+                margin: 0;
+                margin-left: 28px;
+                margin-top: -28px;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .volume {
+                margin: 0;
+                margin-top: -28px;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .variation {
+                margin: 0;
+                margin-left: 28px;
+                margin-top: -26.75px;
+                font-size: 24px;
+                font-weight: 600;
+                color: rgba(40, 214, 78, 1);
+            }
+
+            .lastUpdateContainer {
+                padding: 0 16px;
+            }
+
+            .lastUpdateText {
+                margin: 0;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .divider4 {
+                margin: 26px 16px;
+            }
+
+            .historyContainer {
+                display: flex;
+                justify-content: flex-start;
+                padding: 0 16px;
+                width: calc(100% - 32px);
+            }
+
+            .historyButtonsContainer {
+                display: flex;
+                width: calc(100%);
+            }
+
+            .searchContainer1 {
+                width: calc(100%);
+                margin-right: 16px;
+            }
+
+            .searchContainer2 {
+                width: calc(100%);
+                margin-left: 16px;
+            }
+
+            .historySearchContainer {
+                display: flex;
+                width: calc(100%);
+                justify-content: space-between;
+                margin-top: -10px;
+                margin-bottom: -10px;
+            }
+
+            .graphicFiltersContainer {
+                display: flex;
+                flex-direction: row;
+                width: calc(100% - 32px);
+                padding: 0 16px;
+            }
+
+            .periodContainer {
+                margin-top: 23px;
+                margin-bottom: 16px;
+                display: flex;
+                width: calc(50%);
+                align-items: center;
+            }
+
+            .periodText {
+                margin-right: 23px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .datesContainer {
+                display: flex;
+                width: calc(50%);
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .datesText {
+                font-size: 12px;
+                font-weight: 500;
+                margin-right: 8px;
+                margin-left: 4px;
+            }
+
+            .graphic {
+                margin: 0 16px;
+                width: calc(100% - 32px);
+                height: 209px;
+            }
+
+            .graphicScroll {
+                margin: 16px;
+                width: calc(100% - 32px);
+                height: 84px;
+            }
+
+            .aboutCriContainer {
+                background: rgba(255, 255, 255, 1);
+                width: calc(100% - 28px);
+                height: max-content;
+                margin-bottom: 36px;
+            }
+
+            .aboutCriTitle {
+                margin: 16px;
+                margin-bottom: 0;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            .aboutCriText {
+                margin: 28px 26px;
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            .auzzaImage {
+                margin: 16px;
+                margin-top: 18px;
+                margin-right: 8px;
+                width: 51.18px;
+                height: 51.18px;
+            }
+
+            .issuedBy {
+                margin: 0;
+                margin-top: -64px;
+                margin-left: 80px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .issuer {
+                margin: 0;
+                margin-top: -15px;
+                margin-left: 153px;
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            .foundedIn {
+                margin: 0;
+                margin-top: 4px;
+                margin-left: 80px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .year {
+                margin: 0;
+                margin-top: -15px;
+                margin-left: 143px;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 25px;
             }
         `;
     let isGrid = false;
@@ -372,7 +691,7 @@ function updateStyle(elem) {
             numBuyers: '43',
             soldTokens: '2.562,00',
         },
-                {
+        {
             id: '2',
             name: 'CRI Praiatur 1',
             image: 'assets/images/product.png',
@@ -430,7 +749,7 @@ function updateStyle(elem) {
             numBuyers: '43',
             soldTokens: '2.562,00',
         },
-                {
+        {
             id: '2',
             name: 'CRI Praiatur 1',
             image: 'assets/images/product.png',
@@ -924,7 +1243,63 @@ function updateStyle(elem) {
         container1.appendChild(tokenValue);
         container1.appendChild(tokenContainer);
 
-        // buyContainer.appendChild(container1);
+        const criSlider = document.createElement('az-slider');
+        criSlider.setAttribute('min', '0');
+        criSlider.setAttribute('max', '1000000000');
+        criSlider.setAttribute('step', '1');
+        criSlider.setAttribute('value', '0');
+        criSlider.setAttribute('solo', '');
+        criSlider.setAttribute('output', 'cri');
+
+        container1.appendChild(criSlider);
+
+        const container2 = document.createElement('div');
+        container2.classList.add('flexContainer2');
+        container2.classList.add('dividerLeft');
+
+        const receiveText = document.createElement('p');
+        receiveText.classList.add('buyTitle');
+        receiveText.textContent = 'Receba:';
+
+        const value = document.createElement('p');
+        value.classList.add('value');
+        value.textContent = 'R$ ' + produto.priceQuotation;
+
+        const valueText = document.createElement('p');
+        valueText.classList.add('valueText');
+        valueText.textContent = 'Valor estimado a receber até a conclusão dos pagamentos';
+
+        const realGainText = document.createElement('p');
+        realGainText.classList.add('buyText');
+        realGainText.textContent = 'Ganho real:';
+
+        const realGainValue = document.createElement('p');
+        realGainValue.classList.add('realGainValue');
+        realGainValue.textContent = 'R$ ' + parseFloat(parseFloat(produto.priceQuotation.replace(',', '.')) - parseFloat(produto.unitaryPrice.replace(',', '.'))).toFixed(2).replace('.', ',');
+
+        container2.appendChild(receiveText);
+        container2.appendChild(value);
+        container2.appendChild(valueText);
+        container2.appendChild(realGainText);
+        container2.appendChild(realGainValue);
+
+        const disclaimerContainer = document.createElement('div');
+        disclaimerContainer.classList.add('disclaimerContainer');
+
+        const disclaimer = document.createElement('p');
+        disclaimer.classList.add('disclaimer');
+        disclaimer.textContent = 'Todas as informações apresentadas foram baseadas nos dados e relatórios disponíveis no momento do lançamento do token e não constituem garantia por parte da Auzza'
+
+        disclaimerContainer.appendChild(disclaimer);
+
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('wrapper');
+
+        wrapper.appendChild(container1);
+        wrapper.appendChild(container2);
+
+        buyContainer.appendChild(wrapper);
+        buyContainer.appendChild(disclaimerContainer);
 
         container.appendChild(productsListing);
         container.appendChild(buyContainer);
@@ -1101,6 +1476,300 @@ function updateStyle(elem) {
 
     productsContainer.appendChild(productsHeader);
     productsContainer.appendChild(productsListingContainer);
+
+    if (isDetails) {
+        const produto = products.find(product => product.id === localStorage.getItem('productId'));
+
+        const graphicContainer = document.createElement('div');
+        graphicContainer.classList.add('graphicContainer');
+
+        const quotationInfoContainer = document.createElement('div');
+        quotationInfoContainer.classList.add('quotationInfoContainer');
+
+        const quotationContainer = document.createElement('div');
+        quotationContainer.classList.add('quotationContainer');
+
+        const quotationText = document.createElement('p');
+        quotationText.classList.add('quotationText');
+        quotationText.textContent = 'Cotação';
+
+        const quotationPrefix = document.createElement('p');
+        quotationPrefix.classList.add('prefix');
+        quotationPrefix.textContent = 'R$';
+
+        const quotation = document.createElement('p');
+        quotation.classList.add('quotation');
+        quotation.textContent = produto.priceQuotation;
+
+        quotationContainer.appendChild(quotationText);
+        quotationContainer.appendChild(quotationPrefix);
+        quotationContainer.appendChild(quotation);
+
+        const volumeContainer = document.createElement('div');
+        volumeContainer.classList.add('quotationContainer');
+
+        const volumeText = document.createElement('p');
+        volumeText.classList.add('quotationText');
+        volumeText.textContent = 'Volume';
+
+        const volumePrefix = document.createElement('p');
+        volumePrefix.classList.add('suffix');
+        volumePrefix.textContent = 'mi';
+
+        const volume = document.createElement('p');
+        volume.classList.add('volume');
+        volume.textContent = produto.volume.slice(0, -3);
+
+        volumeContainer.appendChild(volumeText);
+        volumeContainer.appendChild(volumePrefix);
+        volumeContainer.appendChild(volume);
+
+        const maxDayContainer = document.createElement('div');
+        maxDayContainer.classList.add('quotationContainer');
+
+        const maxDayText = document.createElement('p');
+        maxDayText.classList.add('quotationText');
+        maxDayText.textContent = 'Máximo (dia)';
+
+        const maxDayPrefix = document.createElement('p');
+        maxDayPrefix.classList.add('prefix');
+        maxDayPrefix.textContent = 'R$';
+
+        const maxDay = document.createElement('p');
+        maxDay.classList.add('quotation');
+        maxDay.textContent = produto.maxDay;
+
+        maxDayContainer.appendChild(maxDayText);
+        maxDayContainer.appendChild(maxDayPrefix);
+        maxDayContainer.appendChild(maxDay);
+
+        const minDayContainer = document.createElement('div');
+        minDayContainer.classList.add('quotationContainer');
+
+        const minDayText = document.createElement('p');
+        minDayText.classList.add('quotationText');
+        minDayText.textContent = 'Mínimo (dia)';
+
+        const minDayPrefix = document.createElement('p');
+        minDayPrefix.classList.add('prefix');
+        minDayPrefix.textContent = 'R$';
+
+        const minDay = document.createElement('p');
+        minDay.classList.add('quotation');
+        minDay.textContent = produto.minDay;
+
+        minDayContainer.appendChild(minDayText);
+        minDayContainer.appendChild(minDayPrefix);
+        minDayContainer.appendChild(minDay);
+
+        const variationContainer = document.createElement('div');
+        variationContainer.classList.add('quotationContainer');
+
+        const variationText = document.createElement('p');
+        variationText.classList.add('quotationText');
+        variationText.textContent = 'Variação';
+
+        const variationPrefix = document.createElement('img');
+        variationPrefix.classList.add('prefixImg');
+        variationPrefix.src = 'assets/images/green-arrow-up.png';
+
+        const variation = document.createElement('p');
+        variation.classList.add('variation');
+        variation.textContent = produto.variation;
+
+        variationContainer.appendChild(variationText);
+        variationContainer.appendChild(variationPrefix);
+        variationContainer.appendChild(variation);
+
+        quotationInfoContainer.appendChild(quotationContainer);
+        quotationInfoContainer.appendChild(volumeContainer);
+        quotationInfoContainer.appendChild(maxDayContainer);
+        quotationInfoContainer.appendChild(minDayContainer);
+        quotationInfoContainer.appendChild(variationContainer);
+
+        const lastUpdateContainer = document.createElement('div');
+        lastUpdateContainer.classList.add('lastUpdateContainer');
+
+        const lastUpdateText = document.createElement('p');
+        lastUpdateText.classList.add('lastUpdateText');
+        lastUpdateText.textContent = 'Última atualização: 21/07/2023 às 12h13';
+
+        lastUpdateContainer.appendChild(lastUpdateText);
+
+        const divider4 = document.createElement('div');
+        divider4.classList.add('divider');
+        divider4.classList.add('divider4');
+
+        const historyContainer = document.createElement('div');
+        historyContainer.classList.add('historyContainer');
+
+        const historyButtonsContainer = document.createElement('div');
+        historyButtonsContainer.classList.add('historyButtonsContainer');
+
+        const intradayButton = document.createElement('az-button');
+        intradayButton.setAttribute('no-icon', '');
+        intradayButton.textContent = 'Intraday';
+
+        const historyButton = document.createElement('az-button');
+        historyButton.setAttribute('no-icon', '');
+        historyButton.setAttribute('purple', '');
+        historyButton.textContent = 'Histórico';
+
+        historyButtonsContainer.appendChild(intradayButton);
+        historyButtonsContainer.appendChild(historyButton);
+
+        const historySearchContainer = document.createElement('div');
+        historySearchContainer.classList.add('historySearchContainer');
+
+        const compare1 = document.createElement('az-input');
+        compare1.setAttribute('type', 'text');
+        compare1.setAttribute('placeholder', 'Comparar');
+        compare1.setAttribute('id', 'search');
+
+        const compare2 = document.createElement('az-input');
+        compare2.setAttribute('type', 'text');
+        compare2.setAttribute('placeholder', 'Comparar');
+        compare2.setAttribute('id', 'search');
+
+        const searchContainer1 = document.createElement('div');
+        searchContainer1.classList.add('searchContainer1');
+
+        const searchContainer2 = document.createElement('div');
+        searchContainer2.classList.add('searchContainer2');
+
+        searchContainer1.appendChild(compare1);
+        searchContainer2.appendChild(compare2);
+
+        historySearchContainer.appendChild(searchContainer1);
+        historySearchContainer.appendChild(searchContainer2);
+
+        historyContainer.appendChild(historyButtonsContainer);
+        historyContainer.appendChild(historySearchContainer);
+
+        const graphicFiltersContainer = document.createElement('div');
+        graphicFiltersContainer.classList.add('graphicFiltersContainer');
+
+        const periodContainer = document.createElement('div');
+        periodContainer.classList.add('periodContainer');
+
+        const periodText = document.createElement('p');
+        periodText.classList.add('periodText');
+        periodText.textContent = 'Filtrar período';
+
+        const weekButton = document.createElement('az-button');
+        weekButton.setAttribute('no-icon', '');
+        weekButton.textContent = '1S';
+
+        const monthButton = document.createElement('az-button');
+        monthButton.setAttribute('no-icon', '');
+        monthButton.textContent = '1M';
+
+        const threeMonthsButton = document.createElement('az-button');
+        threeMonthsButton.setAttribute('no-icon', '');
+        threeMonthsButton.textContent = '3M';
+
+        const sixMonthsButton = document.createElement('az-button');
+        sixMonthsButton.setAttribute('no-icon', '');
+        sixMonthsButton.textContent = '6M';
+
+        const yearButton = document.createElement('az-button');
+        yearButton.setAttribute('no-icon', '');
+        yearButton.textContent = '1A';
+
+        periodContainer.appendChild(periodText);
+        periodContainer.appendChild(weekButton);
+        periodContainer.appendChild(monthButton);
+        periodContainer.appendChild(threeMonthsButton);
+        periodContainer.appendChild(sixMonthsButton);
+        periodContainer.appendChild(yearButton);
+
+        const datesContainer = document.createElement('div');
+        datesContainer.classList.add('datesContainer');
+
+        const datesText1 = document.createElement('p');
+        datesText1.classList.add('datesText');
+        datesText1.textContent = 'Início';
+
+        const date1 = document.createElement('az-input');
+        date1.setAttribute('id', 'date');
+
+        const datesText2 = document.createElement('p');
+        datesText2.classList.add('datesText');
+        datesText2.textContent = 'Término';
+
+        const date2 = document.createElement('az-input');
+        date2.setAttribute('id', 'date');
+
+        datesContainer.appendChild(datesText1);
+        datesContainer.appendChild(date1);
+        datesContainer.appendChild(datesText2);
+        datesContainer.appendChild(date2);
+
+        graphicFiltersContainer.appendChild(periodContainer);
+        graphicFiltersContainer.appendChild(datesContainer);
+
+        const graphic = document.createElement('img');
+        graphic.classList.add('graphic');
+        graphic.src = 'assets/images/product-details-graphic.png';
+
+        const graphicScroll = document.createElement('img');
+        graphicScroll.classList.add('graphicScroll');
+        graphicScroll.src = 'assets/images/graphic-scroll.png';
+
+        graphicContainer.appendChild(quotationInfoContainer);
+        graphicContainer.appendChild(lastUpdateContainer);
+        graphicContainer.appendChild(divider4);
+        graphicContainer.appendChild(historyContainer);
+        graphicContainer.appendChild(graphicFiltersContainer);
+        graphicContainer.appendChild(graphic);
+        graphicContainer.appendChild(graphicScroll);
+
+        const aboutCriContainer = document.createElement('div');
+        aboutCriContainer.classList.add('aboutCriContainer');
+
+        const aboutCriTitle = document.createElement('p');
+        aboutCriTitle.classList.add('aboutCriTitle');
+        aboutCriTitle.textContent = 'Sobre o CRI';
+
+        const aboutCriText = document.createElement('p');
+        aboutCriText.classList.add('aboutCriText');
+        aboutCriText.textContent = 'Fundada em 2018 a partir de uma análise do mercado de hospitalidade e suas necessidades, a Blincast decidiu inovar disponibilizando uma solução audiovisual tecnológica, visando principalmente a qualidade no atendimento e a eficiência do produto. A Blincast nasceu, assim, para melhorar a experiência dos hóspedes do setor de hospitalidade. Recebeu sua primeira rodada de investimento em meados de 2019 e a segunda rodada de investimentos em 2020, o que possibilitou melhores formas de governança e estrutura de capital para atender as renomadas redes de hospitalidade, hotéis e hospitais. Atualmente está presente em 18 estados e em mais de 300 estabelecimentos, entre hotéis, moradias por aluguel, motéis, condomínios, hospitais e clínicas.';
+
+        const divider5 = document.createElement('div');
+        divider5.classList.add('divider');
+
+        const auzzaImage = document.createElement('img');
+        auzzaImage.classList.add('auzzaImage');
+        auzzaImage.src = 'assets/images/auzza-image.png';
+
+        const issuedBy = document.createElement('p');
+        issuedBy.classList.add('issuedBy');
+        issuedBy.textContent = 'Emitido por:';
+
+        const issuer = document.createElement('p');
+        issuer.classList.add('issuer');
+        issuer.textContent = 'Auzza capital';
+
+        const foundedIn = document.createElement('p');
+        foundedIn.classList.add('foundedIn');
+        foundedIn.textContent = 'Fundação:';
+
+        const founder = document.createElement('p');
+        founder.classList.add('year');
+        founder.textContent = '2022';
+
+        aboutCriContainer.appendChild(aboutCriTitle);
+        aboutCriContainer.appendChild(aboutCriText);
+        aboutCriContainer.appendChild(divider5);
+        aboutCriContainer.appendChild(auzzaImage);
+        aboutCriContainer.appendChild(issuedBy);
+        aboutCriContainer.appendChild(issuer);
+        aboutCriContainer.appendChild(foundedIn);
+        aboutCriContainer.appendChild(founder);
+
+        productsContainer.appendChild(graphicContainer);
+        productsContainer.appendChild(aboutCriContainer);
+    }
 
     rightDiv.appendChild(header);
     rightDiv.appendChild(productsContainer);

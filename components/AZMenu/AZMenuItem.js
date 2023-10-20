@@ -10,6 +10,7 @@ function updateStyle(elem) {
         text-decoration: none;
         margin-top: 8px;
         border-left: 4px solid rgba(255, 255, 255, 0);
+        color: rgba(24, 9, 48, 1);
     }
     
     .menuItem:hover {
@@ -48,6 +49,15 @@ function updateStyle(elem) {
     menuItem.setAttribute('id', 'menuItem');
     active ? menuItem.classList.add('active') : null;
 
+    
+    const icon = document.createElement('img');
+    icon.classList.add('icon');
+    icon.setAttribute('src', 'assets/images/' + itemName + '.png');
+    
+    const text = document.createElement('p');
+    text.classList.add('text');
+    text.textContent = elem.getAttribute('name');
+
     switch (itemName) {
         case "clientes":
             menuItem.setAttribute('href', 'clients.html');
@@ -60,15 +70,7 @@ function updateStyle(elem) {
         default:
             break;
     }
-
-    const icon = document.createElement('img');
-    icon.classList.add('icon');
-    icon.setAttribute('src', 'assets/images/' + itemName + '.png');
-
-    const text = document.createElement('p');
-    text.classList.add('text');
-    text.textContent = elem.getAttribute('name');
-
+    
     menuItem.appendChild(icon);
     menuItem.appendChild(text);
 

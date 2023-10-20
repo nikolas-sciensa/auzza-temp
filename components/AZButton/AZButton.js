@@ -18,6 +18,7 @@ function updateStyle(elem) {
                 text-align: ${elem.hasAttribute('center') ? 'center' : 'left'};
                 ${elem.hasAttribute('purple') ? 'background: rgba(42, 15, 84, 1); color: rgba(255, 255, 255, 1);' : ''}
                 ${elem.hasAttribute('blue') ? 'background: rgba(34, 221, 227, 1);' : ''}
+                ${!elem.hasAttribute('purple') && !elem.hasAttribute('blue') ? 'background: rgba(255, 255, 255, 0);' : ''}
                 min-width: max-content;
                 flex: 1;
             }

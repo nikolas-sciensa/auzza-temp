@@ -47,10 +47,24 @@ export class AZMenuItem extends HTMLElement {
         const itemName = this.getAttribute('name').toLowerCase();
         const active = this.hasAttribute('active');
 
-        const menuItem = document.createElement('div');
+        const menuItem = document.createElement('a');
         menuItem.classList.add('menuItem');
         menuItem.setAttribute('id', 'menuItem');
         active ? menuItem.classList.add('active') : null;
+        
+        switch (active) {
+            case clientes:
+                menuItem.setAttribute('href', 'clients.html');
+                break;
+
+            case produtos:
+                menuItem.setAttribute('href', 'products.html');
+                break;
+        
+            default:
+                menuItem.setAttribute('href', '#');
+                break;
+        }
 
         const icon = document.createElement('img');
         icon.classList.add('icon');

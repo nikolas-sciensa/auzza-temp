@@ -83,8 +83,6 @@ export class AZMenuItem extends HTMLElement {
         const shadowRoot = this.attachShadow({ mode: 'open' });
 
         const style = document.createElement('style');
-
-
         shadowRoot.appendChild(style);
     }
 

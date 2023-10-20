@@ -58,7 +58,6 @@ function updateStyle(elem) {
             break;
 
         default:
-            menuItem.setAttribute('href', '#');
             break;
     }
 

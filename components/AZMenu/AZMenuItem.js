@@ -89,5 +89,6 @@ export class AZMenuItem extends HTMLElement {
     }
 
     connectedCallback() {
+        updateStyle(this);
     }
 }

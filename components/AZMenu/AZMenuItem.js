@@ -49,11 +49,11 @@ function updateStyle(elem) {
     active ? menuItem.classList.add('active') : null;
 
     switch (active) {
-        case "Clientes":
+        case "clientes":
             menuItem.setAttribute('href', 'clients.html');
             break;
 
-        case "Produtos":
+        case "produtos":
             menuItem.setAttribute('href', 'products.html');
             break;
 

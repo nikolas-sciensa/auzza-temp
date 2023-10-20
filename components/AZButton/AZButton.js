@@ -39,24 +39,24 @@ function updateStyle(elem) {
     button.textContent = elem.textContent;
 
     const buttonIcon = document.createElement('img');
-    buttonIcon.src = '/assets/images/arrow-right.png';
+    buttonIcon.src = 'assets/images/arrow-right.png';
     buttonIcon.classList.add('buttonIcon');
 
     if (elem.hasAttribute('download')) {
-        buttonIcon.src = '/assets/images/download.png';
+        buttonIcon.src = 'assets/images/download.png';
     }
 
     if (elem.hasAttribute('share')) {
-        buttonIcon.src = '/assets/images/share.png';
+        buttonIcon.src = 'assets/images/share.png';
     }
 
     if (elem.hasAttribute('arrowBack')) {
-        buttonIcon.src = '/assets/images/arrow-right.png';
+        buttonIcon.src = 'assets/images/arrow-right.png';
         buttonIcon.style.transform = 'rotate(180deg)';
     }
 
     if (elem.hasAttribute('send')) {
-        buttonIcon.src = '/assets/images/send.png';
+        buttonIcon.src = 'assets/images/send.png';
     }
 
     if (!elem.hasAttribute('no-icon')) {

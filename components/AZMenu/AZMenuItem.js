@@ -53,11 +53,11 @@ export class AZMenuItem extends HTMLElement {
         active ? menuItem.classList.add('active') : null;
         
         switch (active) {
-            case clientes:
+            case "Clientes":
                 menuItem.setAttribute('href', 'clients.html');
                 break;
 
-            case produtos:
+            case "Produtos":
                 menuItem.setAttribute('href', 'products.html');
                 break;
         
